@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { ToDoCounter } from './ToDoCounter';
+import { ToDoSearch } from './ToDoSearch';
+import { ToDoList } from './ToDoList';
+import { ToDoItem } from './ToDoItem';
+import { CreateToDoButton } from './CreateToDoButton';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <ToDoCounter />
+      <ToDoSearch />
+
+      <ToDoList>
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+      </ToDoList>
+
+      <CreateToDoButton />
     </div>
   );
 }
