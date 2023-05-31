@@ -1,8 +1,8 @@
-function ToDoItem() {
+function ToDoItem({text, completed}) {
     return (
         <li>
-            <span>Cortar cebolla</span>
-            <p>Hacer las compras</p>
+            <span>V</span>
+            <p>{text}</p>
             <span>X</span>
         </li>
     );
