@@ -1,9 +1,9 @@
 function ToDoItem({text, completed}) {
     return (
         <li>
-            <span>V</span>
-            <p>{text}</p>
-            <span>X</span>
+            <input className="Checkbox-input" type="Checkbox" />
+            <p className={`ToDo-text ${completed && "icon-check-active"}`}>{text}</p>
+            <button className="Delete-button">X</button>
         </li>
     );
 }

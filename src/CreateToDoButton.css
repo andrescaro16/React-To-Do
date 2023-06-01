@@ -1,0 +1,22 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.create-todo-button {
+    border: none;
+    border-radius: 10px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #52a2ab;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+button.create-todo-button:hover {
+    background-color: #59aeb8;
+}
