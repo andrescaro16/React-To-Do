@@ -12,20 +12,25 @@ import { CreateToDoButton } from './CreateToDoButton';
 //   { text: 'Golang Player', completed: true },
 // ]
 
-function App() {
-  
-  //LocalStorage
-  const localStorageToDos = localStorage.getItem('ToDos');
-  //const parsedToDos = JSON.parse(localStorageToDos) || []; //Si no hay nada en el localStorage, parsedToDos es un array vacío. Esta lógica la pasamos al useState de ToDos para eficiencia (para que no se ejecute en cada re-renderización, solo en el primer render)
-  const saveToDos = (newToDos) => {
-    localStorage.setItem('ToDos', JSON.stringify(newToDos));
-    setToDos(newToDos);
+
+function useLocalStorage(itemName, initialValue){
+  const localStorageItem = localStorage.getItem(itemName);
+  const parsedItem = JSON.parse(localStorageItem) || initialValue;
+
+  const [item, setItem] = useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
   }
 
+  return [item, saveItem];
+}
+
+
+function App() {
+  const [toDos, saveToDos] = useLocalStorage("ToDos", []);
   const [searchValue, setSearchValue] = useState('');
-  const [toDos, setToDos] = useState(() => {
-    return localStorageToDos ? JSON.parse(localStorageToDos) : [];
-  });
 
   const completedToDos = toDos.reduce((acc, toDo) => {toDo.completed ? acc += 1 : acc += 0; return acc;}, 0);
   const total = toDos.length;
