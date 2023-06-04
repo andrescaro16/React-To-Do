@@ -3,14 +3,14 @@ import { CompleteIcon } from "./CompleteIcon";
 import { DeleteIcon } from "./DeleteIcon";
 
 
-function ToDoItem({text, completed, i, toDos, setToDos}) {
+function ToDoItem({text, completed, i, toDos, saveToDos}) {
 
     const onDeleteButton = () => {
-        setToDos(toDos.filter((toDo, index) => index !== i));
+        saveToDos(toDos.filter((toDo, index) => index !== i));
     }
 
     const onCheckboxChange = () => {
-        setToDos(
+        saveToDos(
             toDos.map((toDo, index) => {
                 if (index === i) {
                     return {...toDo, completed: !completed};
