@@ -1,3 +1,8 @@
+import React from "react";
+import { CompleteIcon } from "./CompleteIcon";
+import { DeleteIcon } from "./DeleteIcon";
+
+
 function ToDoItem({text, completed, i, toDos, setToDos}) {
 
     const onDeleteButton = () => {
@@ -16,10 +21,10 @@ function ToDoItem({text, completed, i, toDos, setToDos}) {
     }
 
     return (
-        <li>
-            <input className="Checkbox-input" type="Checkbox" checked={completed} onChange={onCheckboxChange}/>
-            <p className={`ToDo-text ${completed && "icon-check-active"}`}>{text}</p>
-            <button className="Delete-button" onClick={onDeleteButton}>X</button>
+        <li className="toDoItem">
+            <CompleteIcon completed={completed} onComplete={onCheckboxChange} />
+            <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>{text}</p>
+            <DeleteIcon onDelete={onDeleteButton} />
         </li>
     );
 }
