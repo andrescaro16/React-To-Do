@@ -11,7 +11,12 @@ import { useLocalStorage } from '../Hooks/useLocalStorage';
 
 
 function App() {
-  const [toDos, saveToDos] = useLocalStorage("ToDos", []);
+  const {
+    item: toDos,
+    saveItem: saveToDos,
+    loading,
+    error,
+  } = useLocalStorage("ToDos", []);
   const [searchValue, setSearchValue] = useState('');
 
   const completedToDos = toDos.reduce((acc, toDo) => {toDo.completed ? acc += 1 : acc += 0; return acc;}, 0);
@@ -19,7 +24,9 @@ function App() {
   const filteredToDos = toDos.filter(toDos => toDos.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
 
   return (
-    <AppUI 
+    <AppUI
+      loading={loading}
+      error={error}
       completedToDos={completedToDos}
       total={total}
       searchValue={searchValue}
