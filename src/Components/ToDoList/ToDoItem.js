@@ -1,6 +1,6 @@
 import React from "react";
-import { CompleteIcon } from "./CompleteIcon";
-import { DeleteIcon } from "./DeleteIcon";
+import { CompleteIcon } from "../ToDoIcon/CompleteIcon";
+import { DeleteIcon } from "../ToDoIcon/DeleteIcon";
 
 
 function ToDoItem({text, completed, i, toDos, saveToDos}) {
