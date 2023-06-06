@@ -3,6 +3,9 @@ import { ToDoSearch } from '../Components/ToDoSearch/ToDoSearch';
 import { ToDoList } from '../Components/ToDoList/ToDoList';
 import { ToDoItem } from '../Components/ToDoList/ToDoItem';
 import { CreateToDoButton } from '../Components/CreateToDoButton/CreateToDoButton';
+import { ToDoLoading } from '../Components/ToDoLoading/ToDoLoading';
+import { ToDoError } from '../Components/ToDoLoading/ToDoError';
+import { EmptyToDos } from '../Components/ToDoLoading/EmptyToDos';
 
 function AppUI({
     loading,
@@ -21,8 +24,16 @@ function AppUI({
           <ToDoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
     
           <ToDoList>
-            {loading ? <p>Cargando...</p> : null}
-            {error ? <p>Preocúpate, tenemos problemas!</p> : null}
+            {loading
+              ? <>
+                <ToDoLoading />
+                <ToDoLoading />
+                <ToDoLoading />
+                <ToDoLoading />
+                </>
+              : null}
+            {error ? <ToDoError /> : null}
+            {(!loading && filteredToDos.length === 0) ? <EmptyToDos /> : null}
             {filteredToDos.map((toDo, index) => (
               <ToDoItem key={index} text={toDo.text} completed={toDo.completed} i={index} toDos={toDos} saveToDos={saveToDos} />
             ))}

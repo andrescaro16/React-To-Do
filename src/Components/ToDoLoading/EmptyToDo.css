@@ -1,0 +1,7 @@
+div.empty-todo{
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    margin: 8px;
+    color: #52a2ab;
+}
