@@ -7,6 +7,7 @@ import { ToDoLoading } from "../Components/ToDoLoading/ToDoLoading";
 import { ToDoError } from "../Components/ToDoLoading/ToDoError";
 import { EmptyToDos } from "../Components/ToDoLoading/EmptyToDos";
 import { Modal } from "../Components/Modal/Modal";
+import { ToDoForm } from "../Components/ToDoForm/ToDoForm";
 import { useStateContext } from "../Context/useStateContext";
 
 function AppUI() {
@@ -41,7 +42,7 @@ function AppUI() {
 			<CreateToDoButton />
       {isOpen && (
         <Modal>
-          <h1>Este es el modal</h1>
+          <ToDoForm />
         </Modal>
       )}
 		</>

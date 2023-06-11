@@ -19,7 +19,16 @@ export const StateContext = ({ children }) => {
     const completedToDos = toDos.reduce((acc, toDo) => {toDo.completed ? acc += 1 : acc += 0; return acc;}, 0);
     const total = toDos.length;
     const filteredToDos = toDos.filter(toDos => toDos.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
-    
+
+    // Functions
+    const addToDo = (text) => {
+        const newToDos = [...toDos];
+        newToDos.push({
+            text,
+            completed: false,
+        });
+        saveToDos(newToDos);
+    }
 
     return (
         <Context.Provider value={{
@@ -31,6 +40,7 @@ export const StateContext = ({ children }) => {
             setSearchValue,
             filteredToDos,
             toDos,
+            addToDo,
             saveToDos,
             isOpen,
             setIsOpen,
