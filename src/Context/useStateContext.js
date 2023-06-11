@@ -13,6 +13,7 @@ export const StateContext = ({ children }) => {
         error,
     } = useLocalStorage("ToDos", []);
     const [searchValue, setSearchValue] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
 
     // SubComponents
     const completedToDos = toDos.reduce((acc, toDo) => {toDo.completed ? acc += 1 : acc += 0; return acc;}, 0);
@@ -31,6 +32,8 @@ export const StateContext = ({ children }) => {
             filteredToDos,
             toDos,
             saveToDos,
+            isOpen,
+            setIsOpen,
         }}>
             {children}
         </Context.Provider>

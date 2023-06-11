@@ -2,21 +2,31 @@
     display: flex;
     justify-content: center;
     position: relative;
+    z-index: 1;
 }
 
 .create-todo-button {
+    background-color: #61DAFA;
+    box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
     border: none;
-    border-radius: 10px;
-    padding: 16px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #52a2ab;
-    color: #fff;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 50px;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
     font-weight: bold;
+    color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+
+    transform: rotate(0);
+    transition: .3s ease;
 }
 
-button.create-todo-button:hover {
-    background-color: #59aeb8;
+.create-todo-button:hover {
+    transform: rotate(180deg);
 }

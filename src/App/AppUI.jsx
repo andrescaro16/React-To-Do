@@ -6,10 +6,11 @@ import { CreateToDoButton } from "../Components/CreateToDoButton/CreateToDoButto
 import { ToDoLoading } from "../Components/ToDoLoading/ToDoLoading";
 import { ToDoError } from "../Components/ToDoLoading/ToDoError";
 import { EmptyToDos } from "../Components/ToDoLoading/EmptyToDos";
+import { Modal } from "../Components/Modal/Modal";
 import { useStateContext } from "../Context/useStateContext";
 
 function AppUI() {
-	const { loading, error, filteredToDos } = useStateContext();
+	const { loading, error, filteredToDos, isOpen } = useStateContext();
 
 	return (
 		<>
@@ -38,6 +39,11 @@ function AppUI() {
 			</ToDoList>
 
 			<CreateToDoButton />
+      {isOpen && (
+        <Modal>
+          <h1>Este es el modal</h1>
+        </Modal>
+      )}
 		</>
 	);
 }
