@@ -1,6 +1,10 @@
+import { useStateContext } from '../../Context/useStateContext';
 import './ToDoCounter.css';
 
-function ToDoCounter({completed, total}) {
+function ToDoCounter() {
+
+    const { completedToDos: completed, total } = useStateContext();
+
     return (
         <>
         {(completed/total) !== 1 ?

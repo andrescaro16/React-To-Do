@@ -1,6 +1,10 @@
+import { useStateContext } from '../../Context/useStateContext';
 import './ToDoSearch.css';
 
-function ToDoSearch({ searchValue, setSearchValue }) {
+
+function ToDoSearch() {
+
+    const { searchValue, setSearchValue } = useStateContext();
 
     return (
         <div className='input-container'>

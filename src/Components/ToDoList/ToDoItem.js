@@ -1,9 +1,12 @@
 import React from "react";
+import { useStateContext } from "../../Context/useStateContext";
 import { CompleteIcon } from "../ToDoIcon/CompleteIcon";
 import { DeleteIcon } from "../ToDoIcon/DeleteIcon";
 
 
-function ToDoItem({text, completed, i, toDos, saveToDos}) {
+function ToDoItem({ text, completed, i }) {
+
+    const { toDos, saveToDos } = useStateContext();
 
     const onDeleteButton = () => {
         saveToDos(toDos.filter((toDo, index) => index !== i));
